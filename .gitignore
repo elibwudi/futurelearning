@@ -39,3 +39,6 @@ dist-ssr
 # Uploads
 uploads/
 server/public/uploads/
+ 
+# AI IDE Context
+.claude/
