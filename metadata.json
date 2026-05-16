@@ -1,0 +1,5 @@
+{
+  "name": "future learning",
+  "description": "An adaptive learning platform that converts text into a navigable knowledge graph. Users progress through concepts, unlocking new nodes upon mastery.",
+  "requestFramePermissions": []
+}
