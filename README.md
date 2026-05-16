@@ -821,7 +821,7 @@ CREATE TABLE settings (
 - npm 8+
 - PostgreSQL 3
 
-### 部署步骤
+### 安装与部署指南
 
 #### 1. 克隆代码
 
@@ -830,46 +830,65 @@ git clone <repository-url>
 cd fl1202
 ```
 
-#### 2. 安装依赖
+#### 2. 安装依赖包
 
 ```bash
-# 前端依赖
+# 安装前端依赖
 npm install
 
-# 后端依赖
+# 安装后端依赖
 cd server
 npm install
 ```
 
-#### 3. 配置环境
+#### 3. 配置数据库与环境变量
 
-创建 `.env` 文件：
+在 `server/` 目录下创建 `.env` 文件，并填入以下内容（请根据您的 PostgreSQL 实际情况修改）：
 
 ```env
-SECRET_KEY=your-secret-key-change-this
-PORT=3001
+# PostgreSQL 数据库连接字符串
+DATABASE_URL="postgresql://fl_app:fl1202_app_2026@localhost:5432/fl1202"
+
+# JWT 安全密钥
+JWT_SECRET="your-secret-key-change-this-in-production"
+
+# 后端服务端口
+PORT=3008
 ```
 
-#### 4. 启动服务
+#### 4. 初始化数据库
+
+确保您本地已经安装并运行了 PostgreSQL 数据库。然后执行数据库结构同步：
+
+```bash
+cd server
+# 生成 Prisma Client
+npx prisma generate
+
+# 将数据表结构推送到数据库
+npx prisma db push
+```
+
+#### 5. 启动服务
 
 **开发环境**:
 
 ```bash
-# 启动后端 (端口3001)
+# 终端1：启动后端API与静态服务
 cd server
 node server.js
 
-# 启动前端 (端口3008)
+# 终端2：启动前端Vite热更新服务
 npm run dev
 ```
 
-**生产环境**:
+**生产环境 (Windows 系统服务或后台运行)**:
 
 ```bash
-# 构建前端
+# 1. 构建前端产物
 npm run build
 
-# 启动服务 (静态托管 + API)
+# 2. 启动混合模式服务 (包含API和前端静态网页)
 cd server
 node server.js
 ```
