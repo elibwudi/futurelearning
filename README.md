@@ -958,9 +958,9 @@ A: 使用 `server/cleanup-course.js`脚本重置。
 
 ### C. 联系方式
 
-- 技术支持: [联系方式]
+- 技术支持: [elibwudi@gmail.com]
 - 问题反馈: [GitHub Issues]
-- 文档更新: [更新日期]
+- 文档更新: [2026.05.16]
 
 ---
 
