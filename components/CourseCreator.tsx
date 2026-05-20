@@ -483,7 +483,7 @@ const CourseCreator: React.FC<CourseCreatorProps> = ({ initialCourse, currentUse
                                 {genMode === 'AUTO' ? (
                                     <div className="flex-1 flex flex-col justify-end">
                                         <p className="text-xs text-slate-500 mb-4 bg-blue-50 p-3 rounded border border-blue-100">
-                                            系统将使用当前配置的 AI 模型（Gemini Cloud 或本地 Ollama）分析上述教材文本并构建图谱。
+                                            系统将使用当前配置的 AI 模型分析上述教材文本并构建图谱。
                                         </p>
                                         <button onClick={handleGenerateGraph} disabled={loading || isExtracting || !inputText} className={`w-full py-3 rounded-lg flex items-center justify-center gap-2 font-semibold transition-all shadow-md ${loading ? 'bg-slate-100 text-slate-400' : 'bg-blue-600 text-white hover:bg-blue-700'}`}>
                                             {loading ? <><Loader2 size={18} className="animate-spin" /> AI 正在分析...</> : <><Sparkles size={18} /> 一键生成预览</>}
